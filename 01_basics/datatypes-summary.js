@@ -22,7 +22,7 @@ console.log(id === anotherId);
 
 // Reference (Non primitive)
 
-// 🔸 2. Non-Primitive (Reference) Data Types → ✅ Passed by Reference (technically, by value of reference)
+// 🔸  Non-Primitive (Reference) Data Types → ✅ Passed by Reference (technically, by value of reference)
 // A copy of the reference (memory address) is passed.
 // So changes to the object do affect the original data.
 

@@ -18,3 +18,8 @@ console.log(undefined < 0);
 // === strict comparison , it also check data types
 
 console.log("2" === 2);
+
+/*
+Lose Equality(==) : Compares values after converting types (type coercion).May return true even if the types are different. 
+Strict Equality(===) : Compares both value and type.Returns true only if both are exactly the same.
+*/

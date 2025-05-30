@@ -1,4 +1,4 @@
-"use strict"; // treat all JS code as newer version
+"use strict"; // treat all JS code as newer version which helps catch common mistakes and makes your code more secure and cleaner.
 
 // alert( 3 + 3) // we are using nodejs, not browser
 
@@ -40,6 +40,6 @@ function greet() {
 
 /*
 1. Why we use "use strict"
-2. What is ecma script
+2. What is ecma script : ECMAScript is the standard (specification) that defines how the JavaScript language should work.
 3. Different data types in javascript
 */
