@@ -35,4 +35,8 @@ console.log("B ", myArr);
 const myn2 = myArr.splice(1, 3);
 console.log("C ", myArr);
 console.log(myn2);
-// 1 . Slice and Splice in java script and there differences
+/*
+1 . Slice and Splice in java script and there differences : 
+slice() returns a shallow copy of a portion of an array without modifying the original array.
+splice() modifies the original array by adding/removing elements.
+*/
