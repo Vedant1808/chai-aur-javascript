@@ -60,3 +60,40 @@ console.log(typeof anotherId);
 | `class MyClass {}`   | Class (function)    | `"function"`          |
 
 */
+
+let userOne = {
+  name: "annat",
+  upi: "upi@ybl",
+};
+
+let userTwo = userOne;
+
+userTwo.name = "kanha";
+console.log(userOne);
+console.log(userTwo);
+// userOne and userTwo both are store in stack memory and pointing to same object store in heap memory
+
+let userName = "anant";
+let userName1 = userName;
+
+userName1 = "aman";
+console.log(userName);
+console.log(userName1);
+/*
+Stack memory use for primitive data types
+let a = 10;
+let b = a;
+b = 20;
+console.log(a); // 10 — copy was made
+a and b are stored in stack.
+b gets a copy of a, so changes don’t affect a.
+
+Heap memory use for referece data types
+let obj1 = { name: "Vedant" };
+let obj2 = obj1;
+obj2.name = "Anant";
+console.log(obj1.name); // "Anant"
+obj1 is a reference stored in the stack.
+The actual object is in the heap.
+Both obj1 and obj2 point to the same heap object.
+*/
