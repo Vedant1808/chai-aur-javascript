@@ -1,35 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>htnml Events </title>
-</head>
-<body style="background-color: #414141; color: aliceblue;">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>htnml Events</title>
+  </head>
+  <body style="background-color: #414141; color: aliceblue">
     <h2>Amazing image</h2>
-    <div >
-        <ul id="images">
-            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
-            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
-            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
-            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
-            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
-            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
-        </ul>
-   </div>
-</body>
-<script>
+    <div>
+      <ul id="images">
+        <li>
+          <img
+            width="200px"
+            id="photoshop"
+            src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt="photoshop"
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="japan"
+            src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="river"
+            src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="owl"
+            src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="prayer"
+            src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <a style="color: aliceblue" href="https://google.com" id="google"
+            >Google</a
+          >
+        </li>
+      </ul>
+    </div>
+  </body>
+  <script>
     // document.getElementById('owl').onclick = function(){
     //     alert("owl clicked")
     // }
 
-     // attachEvent()
+    // attachEvent()
     // jQuery - on
 
     // type, timestamp, defaultPrevented
     // target, toElement, srcElement, currentTarget,
     // clientX, clientY, screenX, screenY
     // altkey, ctrlkey, shiftkey, keyCode
+    /*
+
+    📌 Event Object Properties in JavaScript Event Listeners
+
+✅ Commonly used properties inside an event handler function:
+
+1. type
+   - The type of event triggered (e.g., 'click', 'keydown')
+   - Example: e.type ➜ "click"
+
+2. timestamp
+   - The time (in ms) when the event was created
+   - Example: e.timestamp ➜ 1681234567890
+
+3. defaultPrevented
+   - Boolean: true if event.preventDefault() was called
+   - Example:
+       e.preventDefault();
+       console.log(e.defaultPrevented); // true
+
+4. target
+   - The actual element that triggered the event
+   - Example: e.target ➜ <button id="btn">
+
+5. currentTarget
+   - The element the event listener is attached to
+   - Example: e.currentTarget ➜ <div> (may differ from e.target in bubbling)
+
+6. toElement / srcElement (non-standard/IE specific)
+   - Old aliases for e.target (mostly not used in modern code)
+
+7. clientX / clientY
+   - Mouse position relative to the **viewport**
+   - Example: e.clientX, e.clientY ➜ x/y coords inside browser window
+
+8. screenX / screenY
+   - Mouse position relative to the **entire screen**
+   - Example: e.screenX, e.screenY ➜ absolute screen coords
+
+9. altKey, ctrlKey, shiftKey
+   - Booleans indicating whether Alt / Ctrl / Shift key was pressed during event
+   - Example: if (e.ctrlKey) { alert("Ctrl was held!"); }
+
+10. keyCode (Deprecated)
+   - Numeric code of the key pressed (use `e.key` or `e.code` instead)
+   - Example: e.keyCode ➜ 13 for Enter
+
+🔍 Example Usage:
+document.addEventListener("click", function(e) {
+    console.log("Type:", e.type);
+    console.log("Clicked at (viewport):", e.clientX, e.clientY);
+    console.log("Alt pressed?", e.altKey);
+    console.log("Target element:", e.target);
+});
+
+📌 Event Propagation in JavaScript
+
+Event propagation = The flow of an event through the DOM. It has 3 phases:
+
+🔶 1. Capturing Phase (Capture Phase / Trickle Down)
+   - Event starts at the window and moves down to the target element.
+   - Use: element.addEventListener("click", handler, true); // true enables capture
+
+🔶 2. Target Phase
+   - Event reaches the target element.
+   - Handler runs if attached directly to the target element.
+
+🔶 3. Bubbling Phase (Bubble Up)
+   - Event bubbles back up from the target to the root (document).
+   - Default phase in most browsers.
+   - Use: element.addEventListener("click", handler); // false or omitted = bubble
+
+🔁 Example:
+
+   <div id="outer">
+     <button id="inner">Click Me</button>
+   </div>
+
+   document.getElementById("outer").addEventListener("click", () => {
+       console.log("Outer clicked");
+   });
+
+   document.getElementById("inner").addEventListener("click", () => {
+       console.log("Inner clicked");
+   });
+
+🧠 If you click the button:
+   - Output:
+     Inner clicked
+     Outer clicked
+   - Why? Because bubbling happened (default).
+
+🛑 Stopping Propagation:
+   - e.stopPropagation(): Stops event from going further.
+   - e.stopImmediatePropagation(): Stops and prevents any other handlers on the same element from running.
+
+🧪 Example:
+   document.getElementById("inner").addEventListener("click", (e) => {
+       e.stopPropagation();
+       console.log("Only inner runs");
+   });
+
+🔁 Recap:
+   Capture (Top ➝ Down) → Target → Bubble (Bottom ➝ Up)
+*/
 
     // document.getElementById('images').addEventListener('click', function(e){
     //     console.log("clicked inside the ul");
@@ -39,25 +183,22 @@
     //     console.log("owl clicked");
     //     e.stopPropagation()
     // }, false)
-    
+
     // document.getElementById('google').addEventListener('click',function(e){
     //     e.preventDefault();
     //     e.stopPropagation()
     //     console.log("google clicked");
     // }, false)
-   
-    
-    document.querySelector('#images').addEventListener('click', function(e){
-        console.log(e.target.tagName);
-        if (e.target.tagName === 'IMG') {
-            console.log(e.target.id);
-            let removeIt = e.target.parentNode
-            removeIt.remove()
-        }
-    
-        
-    })
-    
+
+    document.querySelector("#images").addEventListener("click", function (e) {
+      console.log(e.target.tagName);
+      if (e.target.tagName === "IMG") {
+        console.log(e.target.id);
+        let removeIt = e.target.parentNode;
+        removeIt.remove();
+      }
+    });
+
     //removeIt.parentNode.removeChild(removeIt)
-</script>
+  </script>
 </html>

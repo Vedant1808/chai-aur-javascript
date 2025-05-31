@@ -1,22 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Chai aur Javascript</h1>
     <button id="start">Start</button>
     <button id="stop">Stop</button>
-</body>
-<script>
-    const sayDate = function(str){
-        console.log(str, Date.now());
-    }
+  </body>
+  <script>
+    let intervalId;
 
-    const intervalId = setInterval(sayDate, 1000, "hi")
+    const sayDate = function (str) {
+      console.log(str, Date.now());
+    };
 
-    clearInterval(intervalId)
-</script>
+    document.getElementById("start").addEventListener("click", function () {
+      intervalId = setInterval(sayDate, 1000, "hi");
+    });
+
+    document.getElementById("stop").addEventListener("click", function () {
+      clearInterval(intervalId);
+    });
+  </script>
 </html>
+/* 📌 Asynchronous JavaScript Fundamentals JS is single-threaded & synchronous
+by default — one operation at a time. 🔁 Asynchronous code allows non-blocking
+operations like: - HTTP requests - Timers - File reading - Event listeners 🧠
+KEY CONCEPTS: 1️⃣ CALLBACKS - A function passed as an argument and executed
+later. Example: function greet(name, callback) { console.log("Hi", name);
+callback(); } greet("Vedant", () => console.log("Callback called")); 🔁
+Problems: Callback hell, hard to read/maintain.
+------------------------------------------------ 2️⃣ PROMISES - A placeholder for
+a value that will be available in the future. Syntax: const promise = new
+Promise((resolve, reject) => { // async operation if (success) resolve(data);
+else reject(error); }); promise .then(data => console.log(data)) .catch(err =>
+console.error(err)); ------------------------------------------------ 3️⃣ ASYNC /
+AWAIT - Syntactic sugar over Promises - Allows writing async code in a
+synchronous style Example: async function fetchData() { try { const res = await
+fetch('https://api.example.com/data'); const data = await res.json();
+console.log(data); } catch (err) { console.error(err); } }
+------------------------------------------------ 🧵 EVENT LOOP - Manages
+execution of sync & async code - Components: Call Stack, Web APIs, Callback
+Queue, Microtask Queue ------------------------------------------------ 🧪
+setTimeout Example: console.log("Start"); setTimeout(() => { console.log("Async
+Task"); }, 1000); console.log("End"); // Output: // Start // End // Async Task
+(after 1s) ------------------------------------------------ 📊 Microtasks vs
+Macrotasks - Microtasks: `Promise.then`, `queueMicrotask` - Macrotasks:
+`setTimeout`, `setInterval`, DOM events
+------------------------------------------------ ✅ Summary: - Callbacks ➝
+Promises ➝ Async/Await - Use async/await for cleaner, readable async code -
+Event loop handles the async execution */ Let me know if you want a real
+project-based example using async/await or Promises (like fetching API data)!
+You said: How async code execute ChatGPT said: Great question! Here's a clear
+explanation of how async code is executed in JavaScript, formatted so you can
+directly paste it into VS Code as a comment block: javascript Copy code /* 📌
+HOW ASYNC CODE EXECUTES IN JAVASCRIPT 🔁 JavaScript is single-threaded (1 task
+at a time), but asynchronous operations (like `setTimeout`, `fetch`, etc.) allow
+**non-blocking** behavior. ⚙️ COMPONENTS INVOLVED: 1️⃣ Call Stack - Where
+synchronous code runs line by line 2️⃣ Web APIs (provided by browser) - Handle
+async operations like setTimeout, fetch, DOM events 3️⃣ Callback Queue (Macrotask
+Queue) - Holds callback functions from setTimeout, setInterval, etc. 4️⃣
+Microtask Queue - Holds `.then()` handlers from Promises, `queueMicrotask` 5️⃣
+Event Loop - Constantly checks: - If Call Stack is empty ➝ - Pushes Microtasks
+first, then Macrotasks to the Call Stack
+----------------------------------------- 🧪 EXAMPLE: console.log("Start");
+setTimeout(() => { console.log("Timeout"); }, 0); Promise.resolve().then(() => {
+console.log("Promise"); }); console.log("End");
+----------------------------------------- 🔍 OUTPUT: Start End Promise Timeout
+🧠 WHY? - `console.log("Start")` and `console.log("End")` run first (sync code)
+- `Promise.then` is a microtask ➝ runs before macrotasks - `setTimeout` is a
+macrotask ➝ runs after microtasks ----------------------------------------- ✅
+Summary: - Sync code → Call Stack - Async functions → Web APIs → Queues -
+Microtasks run before Macrotasks - Event Loop glues everything together Use this
+understanding to debug async behavior with confidence! */
