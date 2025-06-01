@@ -1,31 +1,48 @@
-function multipleBy5(num){
-
-    return num*5
+//In JavaScript, prototype is a core concept used in object-oriented programming. It allows you to share properties and methods across all instances of a constructor function.
+// Function is also object in javascript
+/*
+function Person(name) {
+  this.name = name;
 }
 
-multipleBy5.power = 2
+// Add a method to the prototype
+Person.prototype.sayHello = function() {
+  console.log("Hello, my name is " + this.name);
+};
+
+const p1 = new Person("Alice");
+const p2 = new Person("Bob");
+
+p1.sayHello(); // Hello, my name is Alice
+p2.sayHello(); // Hello, my name is Bob
+
+*/
+function multipleBy5(num) {
+  return num * 5;
+}
+
+multipleBy5.power = 2;
 
 console.log(multipleBy5(5));
 console.log(multipleBy5.power);
 console.log(multipleBy5.prototype);
 
-function createUser(username, score){
-    this.username = username
-    this.score = score
+function createUser(username, score) {
+  this.username = username;
+  this.score = score;
 }
 
-createUser.prototype.increment = function(){
-    this.score++
-}
-createUser.prototype.printMe = function(){
-    console.log(`price is ${this.score}`);
-}
+createUser.prototype.increment = function () {
+  this.score++;
+};
+createUser.prototype.printMe = function () {
+  console.log(`price is ${this.score}`);
+};
 
-const chai = new createUser("chai", 25)
-const tea = createUser("tea", 250)
+const chai = new createUser("chai", 25);
+const tea = createUser("tea", 250);
 
-chai.printMe()
-
+chai.printMe();
 
 /*
 
